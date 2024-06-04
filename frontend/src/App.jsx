@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import Card from "./components/Card";
 import React, { useLayoutEffect } from "react";
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
   });
   return (
     <div className="">
-      <Navbar />
+      <div>
+        <Navbar />
+      </div>
+
+      <Card />
     </div>
   );
 }
