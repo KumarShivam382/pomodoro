@@ -6,6 +6,7 @@ export default {
       colors: {
         customRed: "#E86068",
         cardBackground: "#F57C7C",
+        realBackground: "#E86068",
       },
     },
   },
