@@ -17,24 +17,37 @@ export default function Card({
     setMinute(25);
     setSecond(0);
     setColor("#E86068");
+    setStart(false);
   }
 
   function handleShort() {
     setProcess("short");
     setMinute(5);
     setSecond(0);
-    setColor("#33a5c7");
+    setColor("#A855F7");
+    setStart(false);
   }
-  // set opacity
+
   function handleLong() {
     setProcess("long");
     setMinute(15);
-    setSecond();
+    setSecond(0);
+    setColor("#3B82F6");
+    setStart(false);
   }
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="flex flex-col items-center">
-        <div className="m-4 p-4 bg-cardBackground rounded-md">
+        <div
+          className={`m-4 p-4 ${
+            color === "#E86068"
+              ? "bg-cardBackground1"
+              : color === "#A855F7"
+              ? "bg-purple-400"
+              : "bg-blue-400"
+          } rounded-md`}
+        >
           <div className="flex justify-around">
             <div
               className={`${
@@ -46,7 +59,7 @@ export default function Card({
             </div>
             <div
               className={`${
-                process === "short" ? "bg-customRed" : ""
+                process === "short" ? "bg-purple-500" : ""
               } m-2 p-1 text-white text-lg font-medium cursor-pointer rounded-lg }`}
               onClick={handleShort}
             >
@@ -54,7 +67,7 @@ export default function Card({
             </div>
             <div
               className={`${
-                process === "long" ? "bg-customRed" : ""
+                process === "long" ? "bg-blue-500" : ""
               } m-2 p-1 text-white text-lg font-medium cursor-pointer rounded-lg`}
               onClick={handleLong}
             >
@@ -70,7 +83,10 @@ export default function Card({
               onClick={() => {
                 setStart((prev) => !prev);
               }}
-              className="m-3 bg-white text-customRed py-2 px-4 rounded border border-customRed transition duration-300 text-2xl font-semibold border-b-4 border-b-gray-400"
+              className={` 
+                
+              bg-white
+              m-3 text-gray-800  py-2 px-4 rounded-md transition duration-300 text-xl font-semibold border-b-4 border-b-gray-400}`}
             >
               {start ? "PAUSE" : "START"}
             </button>

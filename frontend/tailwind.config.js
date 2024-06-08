@@ -5,8 +5,10 @@ export default {
     extend: {
       colors: {
         customRed: "#E86068",
-        cardBackground: "#F57C7C",
-        realBackground: "#E86068",
+        cardBackground1: "#F57C7C",
+        cardBackground2: "#33a5c7",
+        cardBackground3: "",
+        customBlue: "#6495ED",
       },
     },
   },
