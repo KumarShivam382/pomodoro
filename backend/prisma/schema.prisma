@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int           @id @default(autoincrement())
+  username          String        
+  email             String        @unique
+  password          String
+  createdAt         DateTime      @default(now())
+  
+  // one-to-many 
+  pomodoroSessions  PomodoroSession[]
+  
+  // One-to-one 
+  settings          UserSettings? 
+}
+
+model PomodoroSession {
+  id                Int           @id @default(autoincrement())
+  startTime         DateTime
+  endTime           DateTime?
+  
+  //  many-to-one 
+  user              User          @relation(fields: [userId], references: [id])
+  userId            Int
+  
+  //  many-to-many 
+  tasks             Task[]        @relation("TasksInSession")
+}
+
+model Task {
+  id                Int           @id @default(autoincrement())
+  title             String
+  completed         Boolean       @default(false)
+  createdAt         DateTime      @default(now())
+  
+  // many-to-one 
+  pomodoroSession   PomodoroSession? @relation("TasksInSession", fields: [pomodoroSessionId], references: [id])
+  pomodoroSessionId Int?
+}
+
+model UserSettings {
+  id               Int           @id @default(autoincrement())
+  user             User          @relation(fields: [userId], references: [id])
+  userId           Int           @unique 
+  
+  workDuration     Int           @default(25)
+  breakDuration    Int           @default(5)   
+  createdAt        DateTime      @default(now())
+  
+}
+
