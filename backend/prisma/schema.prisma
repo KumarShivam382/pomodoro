@@ -14,7 +14,7 @@ datasource db {
 }
 
 model User {
-  id                Int           @id @default(autoincrement())
+  id                String        @id @default(uuid())
   username          String        
   email             String        @unique
   password          String
@@ -28,33 +28,33 @@ model User {
 }
 
 model PomodoroSession {
-  id                Int           @id @default(autoincrement())
+  id                String        @id @default(uuid())
   startTime         DateTime
   endTime           DateTime?
   
   //  many-to-one 
   user              User          @relation(fields: [userId], references: [id])
-  userId            Int
+  userId            String
   
   //  many-to-many 
   tasks             Task[]        @relation("TasksInSession")
 }
 
 model Task {
-  id                Int           @id @default(autoincrement())
+  id                String        @id @default(uuid())
   title             String
   completed         Boolean       @default(false)
   createdAt         DateTime      @default(now())
   
   // many-to-one 
   pomodoroSession   PomodoroSession? @relation("TasksInSession", fields: [pomodoroSessionId], references: [id])
-  pomodoroSessionId Int?
+  pomodoroSessionId String
 }
 
 model UserSettings {
-  id               Int           @id @default(autoincrement())
+  id                String        @id @default(uuid())
   user             User          @relation(fields: [userId], references: [id])
-  userId           Int           @unique 
+  userId           String           @unique 
   
   workDuration     Int           @default(25)
   breakDuration    Int           @default(5)   
