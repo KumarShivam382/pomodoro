@@ -1,1 +1,1 @@
-Pomodor is a technique to enhance focus !.
+Pomodoro is a technique to enhance focus !!!.
