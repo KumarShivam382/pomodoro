@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import AddTodo from "./modals/tasks/AddTodo";
+import ViewTodo from "./modals/tasks/ViewTodos";
 
 function Timer() {
   const [process, setProcess] = useState("pomodoro");

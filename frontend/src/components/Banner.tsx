@@ -83,10 +83,21 @@ export default function Signup() {
                 sequence={[
                   "Boost productivity with the Pomodoro Technique.",
                   3000,
-                  "Focus better and achieve more in less time",
+                  "Focus better and achieve more in less time.",
+                  3000,
                   "Manage tasks effectively with timed work sessions.",
                   5000,
                   "Enhance your workflow and reduce distractions.",
+                  3000,
+                  "Break down work into focused intervals.",
+                  3000,
+                  "Track your progress and stay motivated.",
+                  3000,
+                  "Achieve work-life balance with structured breaks.",
+                  5000,
+                  "Increase efficiency and prevent burnout.",
+                  3000,
+                  "Optimize your time and accomplish more.",
                   3000,
                 ]}
                 wrapper="span"
@@ -101,17 +112,19 @@ export default function Signup() {
             </div>
 
             <div className=" mt-8 flex flex-wrap justify-center gap-4">
-              <Button
-                color="blue"
-                ripple="light"
-                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              >
-                <Link to="/signup">Get Started</Link>
-              </Button>
+              <Link to="/signup">
+                <Button
+                  color="blue"
+                  ripple="light"
+                  className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                >
+                  Get Started
+                </Button>
+              </Link>
 
               <a
                 className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="#"
+                href="/rights"
               >
                 Learn More
               </a>

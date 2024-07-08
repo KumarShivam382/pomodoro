@@ -1,5 +1,8 @@
 import React from "react";
 
+import { Button } from "@material-tailwind/react";
+import AddTodo from "./modals/tasks/AddTodo";
+import ViewTodo from "./modals/tasks/ViewTodos";
 export default function Card({
   process,
   setProcess,
@@ -79,16 +82,13 @@ export default function Card({
             {second > 9 ? second : `0${second}`}
           </div>
           <div className="m-2 text-center">
-            <button
+            <Button
               onClick={() => {
-                setStart((prev) => !prev);
+                setStart((prev: boolean) => !prev);
               }}
-              className={` 
-                bg-white
-                m-3 text-gray-800  py-2 px-4 rounded-md transition duration-300 text-xl font-semibold border-b-4 border-b-gray-400`}
             >
               {start ? "PAUSE" : "START"}
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -96,7 +96,9 @@ export default function Card({
           <div className="flex items-center justify-center">
             <div className="grid grid-cols-1">
               <div className="grid-col-span-1 text-center text-gray-700 font-medium">
-                #1
+                <div>
+                  <AddTodo /> <ViewTodo />
+                </div>
               </div>
               <div className="grid-col-span-1 text-white text-lg font-medium">
                 Time to focus !!

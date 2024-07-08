@@ -6,6 +6,9 @@ import Signin from "./components/Signin";
 import Dashboard from "./components/Dashboard";
 import Banner from "./components/Banner";
 import Signup from "./components/Signup";
+import Rights from "./components/Rights";
+import Tasks from "./components/Tasks";
+import AddTodo from "./components/modals/tasks/AddTodo";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/banner" element={<Banner />} />
+        <Route path="/rights" element={<Rights />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/todo" element={<AddTodo />} />
         <Route
           path="/dashboard"
           element={
