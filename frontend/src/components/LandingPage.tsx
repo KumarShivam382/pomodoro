@@ -161,7 +161,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative h-screen overflow-y-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+    <div className="relative h-screen overflow-y-auto bg-gradient-to-r ">
       {init && (
         <Particles
           id="tsparticles"

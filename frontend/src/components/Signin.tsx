@@ -97,7 +97,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center relative ">
       {particlesInit && (
         <Particles
           id="tsparticles"
@@ -106,7 +106,7 @@ export default function Signup() {
           className="absolute inset-0 z-0"
         />
       )}
-      <div className="z-10 relative w-full max-w-md bg-white shadow-md rounded-lg p-8">
+      <div className="z-10 relative w-full max-w-md shadow-md rounded-lg p-8">
         <Card>
           <CardHeader
             variant="gradient"
@@ -202,7 +202,7 @@ export default function Signup() {
                 color="blue-gray"
                 className="ml-1 font-bold"
               >
-                <Link to="/">Signup</Link>
+                <Link to="/signup">Sign up</Link>
               </Typography>
             </Typography>
           </CardFooter>
