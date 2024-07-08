@@ -38,7 +38,7 @@ export default function Card({
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center w-full max-w-lg ">
         <div
           className={`m-4 p-4 ${
             color === "#E86068"
@@ -60,7 +60,7 @@ export default function Card({
             <div
               className={`${
                 process === "short" ? "bg-purple-500" : ""
-              } m-2 p-1 text-white text-lg font-medium cursor-pointer rounded-lg }`}
+              } m-2 p-1 text-white text-lg font-medium cursor-pointer rounded-lg`}
               onClick={handleShort}
             >
               Short Break
@@ -84,9 +84,8 @@ export default function Card({
                 setStart((prev) => !prev);
               }}
               className={` 
-                
-              bg-white
-              m-3 text-gray-800  py-2 px-4 rounded-md transition duration-300 text-xl font-semibold border-b-4 border-b-gray-400}`}
+                bg-white
+                m-3 text-gray-800  py-2 px-4 rounded-md transition duration-300 text-xl font-semibold border-b-4 border-b-gray-400`}
             >
               {start ? "PAUSE" : "START"}
             </button>

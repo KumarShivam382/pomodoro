@@ -1,6 +1,18 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+  Button,
+} from "@material-tailwind/react";
 
 const schema = z.object({
   username: z.string().optional(),
@@ -9,10 +21,10 @@ const schema = z.object({
     message: "Password must be at least 6 characters long",
   }),
 });
-//  schema for form validation
+// schema for form validation
 type FormData = z.infer<typeof schema>;
 
-export default function SignupForm() {
+export default function Signup() {
   const {
     register,
     handleSubmit,
@@ -26,11 +38,9 @@ export default function SignupForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // Simulate a server delay
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate a server delay
       console.log(data);
       reset(); // Clear the form data
-
       throw new Error();
     } catch (error) {
       setError("root", {
@@ -41,18 +51,18 @@ export default function SignupForm() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <div className="text-center mb-6">
-          <div className="text-2xl font-bold">Create an Account</div>
-          <div className="text-sm text-gray-600">
-            Already have an account?{" "}
-            <a href="#" className="text-blue-600 hover:underline">
-              Log in
-            </a>
-          </div>
-        </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-00">
+      <Card className="w-full max-w-md">
+        <CardHeader
+          variant="gradient"
+          color="gray"
+          className="mb-4 grid h-20 place-items-center"
+        >
+          <Typography variant="h3" color="white">
+            Create an Account
+          </Typography>
+        </CardHeader>
+        <CardBody className="flex flex-col gap-4">
           <div>
             <label className="block text-left font-semibold" htmlFor="username">
               Username:
@@ -64,7 +74,6 @@ export default function SignupForm() {
               placeholder="Username"
               className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {}
           </div>
           <div>
             <label className="block text-left font-semibold" htmlFor="email">
@@ -78,7 +87,7 @@ export default function SignupForm() {
               className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.email && (
-              <div className="mt-1 text-red-500 text-sm">
+              <div className="mt-1 text-red-500 text-md">
                 {errors.email.message}
               </div>
             )}
@@ -95,21 +104,22 @@ export default function SignupForm() {
               className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.password && (
-              <div className="mt-1 text-red-500 text-sm">
+              <div className="mt-1 text-red-500 text-md">
                 {errors.password.message}
               </div>
             )}
           </div>
-          <button
+        </CardBody>
+        <CardFooter className="pt-0">
+          <Button
+            variant="gradient"
+            fullWidth
             disabled={isSubmitting}
-            type="submit"
-            className={`w-full p-2 mt-5 text-white rounded ${
-              isSubmitting ? "bg-blue-300" : "bg-blue-600 hover:bg-blue-700"
-            } transition-colors duration-200 flex items-center justify-center`}
+            onClick={handleSubmit(onSubmit)}
           >
             {isSubmitting ? (
               <svg
-                className="animate-spin h-5 w-5 text-white"
+                className="animate-spin h-5 w-5 m-auto text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -131,14 +141,26 @@ export default function SignupForm() {
             ) : (
               "Submit"
             )}
-          </button>
+          </Button>
           {errors.root && (
-            <div className="mt-2 text-red-500 text-sm text-center">
+            <div className="mt-2 text-red-500 text-md text-center">
               {errors.root.message}
             </div>
           )}
-        </form>
-      </div>
+          <Typography variant="small" className="mt-6 flex justify-center">
+            Already have an account?
+            <Typography
+              as="a"
+              href="#signin"
+              variant="small"
+              color="blue-gray"
+              className="ml-1 font-bold"
+            >
+              <Link to="/signin">Login</Link>
+            </Typography>
+          </Typography>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
