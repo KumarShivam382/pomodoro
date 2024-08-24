@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Rights from "./components/Rights";
 import Tasks from "./components/Tasks";
 import AddTodo from "./components/modals/tasks/AddTodo";
+import ProgressReport from "./components/ProgressReport";
 
 function App() {
   return (
@@ -34,6 +35,19 @@ function App() {
         <Route path="/rights" element={<Rights />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/todo" element={<AddTodo />} />
+        <Route
+          path="/progress"
+          element={
+            <div className="flex">
+              <div>
+                <SideBar />
+              </div>
+              <div className="flex items-center justify-center w-full">
+                <ProgressReport />
+              </div>
+            </div>
+          }
+        />
         <Route
           path="/dashboard"
           element={
