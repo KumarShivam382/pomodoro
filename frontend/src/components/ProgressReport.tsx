@@ -11,7 +11,6 @@ import {
 } from "chart.js";
 import { format, subDays } from "date-fns";
 
-// Register components
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -31,7 +30,7 @@ const ranges: Range = {
   "100 Days": 100,
 };
 
-export default function Dashboard() {
+export default function ProgressReport() {
   const [selectedRange, setSelectedRange] =
     useState<keyof typeof ranges>("30 Days");
 

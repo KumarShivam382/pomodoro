@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Timer from "./components/Timer";
-import LandingPage from "./components/LandingPage";
 import SideBar from "./components/Sidebar";
 import Signin from "./components/Signin";
 import Dashboard from "./components/Dashboard";
